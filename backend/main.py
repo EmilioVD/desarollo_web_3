@@ -13,7 +13,7 @@ productos = database["productos"]
 
 @app.get("/")
 def default_route():
-    return {"message": "Uvicorn is running!"}
+    return {"message": "Emilio the goat varguez is running!"}
 
 @app.get("/health")
 def health_check():
