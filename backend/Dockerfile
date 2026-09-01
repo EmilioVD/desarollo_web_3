@@ -1,17 +1,20 @@
-# Imagen base ligera compatible con el proyecto
-FROM python:3.14-slim
+# Imagen base ligera de Python
+FROM python:3.12-slim
 
-# Directorio de trabajo
+# Creamos directorio de trabajo
 WORKDIR /app
 
-# Copiamos solo el backend al contenedor
-COPY backend/ /app/
+# Copiamos todo el contenido del proyecto al contenedor 
+COPY ./poetry.lock ./pyproject.toml .
 
-# Exponemos el puerto de la app
+# Exponer el puerto donde correrá la app
 EXPOSE 8000
 
-# Instalamos dependencias necesarias
-RUN pip install --no-cache-dir fastapi pymongo uvicorn
+# Instalamos poetry
+RUN pip install --no-cache-dir "poetry"
 
-# Arrancamos la app con recarga automática
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+# Instalamos el resto de dependencias con Poetry
+RUN poetry install --no-root --only main --no-cache
+
+# Por último definimos el comando para correr la aplicación
+CMD ["poetry", "run", "uvicorn", "main:app", "--reload", "--host", "0.0.0.0", "--port", "8000"]
