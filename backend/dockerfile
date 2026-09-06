@@ -5,7 +5,7 @@ FROM python:3.12-slim
 WORKDIR /app
 
 # Copiamos todo el contenido del proyecto al contenedor 
-COPY ./poetry.lock ./pyproject.toml .
+COPY . .
 
 # Exponer el puerto donde correrá la app
 EXPOSE 8000
