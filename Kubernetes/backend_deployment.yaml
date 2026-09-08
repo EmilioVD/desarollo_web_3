@@ -15,8 +15,8 @@ spec:
         app: fast-backend
     spec:
       containers:
-        - name: backend-fast
-          image: backend_productos:latest
-          imagePullPolicy: IfNotPresent
-          ports:
-            - containerPort: 8000
+       - name: backend-fast
+         image: backend_productos:latest
+         imagePullPolicy: IfNotPresent
+         ports:
+           - containerPort: 8000
