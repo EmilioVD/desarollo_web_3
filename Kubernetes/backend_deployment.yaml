@@ -18,5 +18,21 @@ spec:
        - name: backend-fast
          image: backend_productos:latest
          imagePullPolicy: IfNotPresent
+         env:
+           - name: MONGO_URI
+             value: mongodb://admin:web3@mongo-service.default.svc.cluster.local:27017/
          ports:
            - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+spec:
+  selector:
+    app: fast-backend
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
+  type: ClusterIP
