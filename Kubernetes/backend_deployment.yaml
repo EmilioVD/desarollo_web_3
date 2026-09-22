@@ -16,11 +16,12 @@ spec:
     spec:
       containers:
        - name: backend-fast
-         image: backend_productos:latest
+         image: ghcr.io/emilio_varguez/backend-productos:latest
          imagePullPolicy: IfNotPresent
          env:
            - name: MONGO_URI
              value: mongodb://admin:web3@mongo-service.default.svc.cluster.local:27017/
+          
          ports:
            - containerPort: 8000
 ---
