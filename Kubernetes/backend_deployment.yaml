@@ -17,7 +17,7 @@ spec:
       containers:
        - name: backend-fast
          image: ghcr.io/emilio_varguez/backend-productos:latest
-         imagePullPolicy: IfNotPresent
+         imagePullPolicy: Always
          env:
            - name: MONGO_URI
              value: mongodb://admin:web3@mongo-service.default.svc.cluster.local:27017/

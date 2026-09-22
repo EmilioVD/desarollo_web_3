@@ -6,3 +6,5 @@ INTRUCCIONES GENERALES:
 Al principio del semestre:
 - cada persona tendrá su propia rama y se encargará de seguir la clase
 - cada rama tendrá nombre_apellido 
+
+hola
